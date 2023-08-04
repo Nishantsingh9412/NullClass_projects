@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import Avatar from '../../components/Avatar/Avatar'  
-import Button from '../../components/Button/Button'  
+// import Button from '../../components/Button/Button'  
 import {BsSearch} from 'react-icons/bs'
 import './Navbar.css'
  
@@ -28,8 +28,8 @@ const Navbar = () => {
                 { User === null ?
                     <Link to='/Auth' className='nav-item nav-links'> Log in  </Link> : 
                     <>
-                        <Link to='/' className=''> <Avatar> N </Avatar>  </Link>
-                        <Button > Log Out  </Button>
+                         <Avatar backgroundColor={'#009dff'} px={'10px'} py={'14px'} borderRadius={'50%'} color={'white'}> <Link to='/User' style={{color:"white",textDecoration:"none"}}> H </Link> </Avatar> 
+                        <button className='nav-item nav-links' > Log Out  </button>
                     </>
                 }
 
