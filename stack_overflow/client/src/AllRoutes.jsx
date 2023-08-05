@@ -9,7 +9,7 @@ const AllRoutes = () => {
                     // we Can write routes as children 
     <Routes>            
         <Route exact path='/' Component={Home}> </Route>
-        <Route exact path='/Auth' Component={Auth}> </Route>
+        <Route exact path='/Auth' Component={Auth }> </Route>
 
     </Routes>
   )
