@@ -17,6 +17,7 @@
 }
 .auth-container-2{
     min-width: 20%;
+    margin-top: 90px;
     display: flex;
     flex-direction: column;
     justify-content: center;
