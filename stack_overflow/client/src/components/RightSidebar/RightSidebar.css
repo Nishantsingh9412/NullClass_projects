@@ -1,7 +1,7 @@
 .right-sidebar{
     float: right;
     width: 300px;
-    margin: -300px 35px 15px 14px;             /* top left bottom right   */
+    margin: -30px 35px 15px 14px;             /* top left bottom right   */
     font-size:15px;    
 }
 .widget {

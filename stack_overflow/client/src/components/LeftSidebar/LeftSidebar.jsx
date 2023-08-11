@@ -3,7 +3,7 @@ import './LeftSidebar.css';
 
 import { NavLink } from 'react-router-dom';
 import {BsGlobeAmericas} from 'react-icons/bs';
-// import { Globe } from '../../assets/Globe.svg'; 
+import { Globe } from '../../assets/Globe.svg'; 
 
 
 const LeftSidebar = () => {
@@ -21,11 +21,11 @@ const LeftSidebar = () => {
                <p style={{paddingLeft:"10px"}}>Questions</p>
             </NavLink>
 
-          <NavLink to='/Tags'  className={'side-nav-links'} activeClassName='active'  style={{paddingLeft:"40px"}}>
+          <NavLink to='/Tags'  className='side-nav-links' activeClassName='active'  style={{paddingLeft:"40px"}}>
                     <p>Tags</p>
           </NavLink>
 
-          <NavLink to='/Tags'  className={'side-nav-links'} activeClassName='active'  style={{paddingLeft:"40px"}}>
+          <NavLink to='/Tags'  className='side-nav-links' activeClassName='active'  style={{paddingLeft:"40px"}}>
                     <p> Users </p> 
           </NavLink>
           </div>
