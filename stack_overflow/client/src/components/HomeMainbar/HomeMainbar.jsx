@@ -46,7 +46,7 @@ const HomeMainbar = () => {
             }
             <Link to='/AskQuestion' className='ask-btn'>  Ask Questions </Link>
         </div>
-        <div>
+        <div > 
           {
             questionsList === null ? 
             <h1> Loading .... </h1> : 
