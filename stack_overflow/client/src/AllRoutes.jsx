@@ -4,7 +4,7 @@ import Home from './pages/Home/Home';
 import Auth from './pages/Auth/Auth';
 import Questions   from './pages/Questions/Questions';
 import AskQuestion from './pages/AskQuestions/AskQuestion';
-
+import DisplayQuestion from './pages/Questions/DisplayQuestion';
 const AllRoutes = () => {
   return (
                     // we Can write routes as children 
@@ -13,6 +13,7 @@ const AllRoutes = () => {
         <Route exact path='/Auth' Component={Auth }> </Route>
         <Route exact path='/Questions' Component={Questions}></Route>
         <Route exact path='/AskQuestion' Component={AskQuestion}></Route>
+        <Route exact path='/Questions/:id' Component={DisplayQuestion}></Route>
     </Routes>
   )
 }
