@@ -6,8 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { askQuestion } from '../../actions/question';
 
 const AskQuestion = () => {
-    const User = useSelector((state) => state.currentUserReducer);
-    
+    const User = useSelector((state) => state.currentUserReducer); 
     const [questionTitle,setQuestionTitle] = useState('');
     const [questionBody,setQuestionBody] = useState('');
     const [questionTags, setQuestionTags] = useState('');

@@ -6,12 +6,14 @@ import Avatar from '../../components/Avatar/Avatar'
 import {BsSearch} from 'react-icons/bs'
 import './Navbar.css'
 import { useDispatch, useSelector } from 'react-redux';
-import {setCurrentUser} from '../../actions/currentUser'
+import {setCurrentUser} from '../../actions/currentUser';
+
  
 const Navbar = () => {
     const dispatch = useDispatch();
-    var User = useSelector((state) => (state.currentUserReducer));      // Selects data from Store 
+    var User = useSelector((state) => (state.currentUserReducer));      // Selects profile data from Store 
 
+    // Just Creates a side Effect 
     useEffect(() => {
         dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))))
     },[dispatch]);

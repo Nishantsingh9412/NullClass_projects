@@ -3,6 +3,7 @@ import { Link , useLocation , useNavigate } from 'react-router-dom';
 
 import './HomeMainbar.css';
 import QuestionsList from './QuestionsList';
+import { useSelector } from 'react-redux';
 
 const HomeMainbar = () => {
 
@@ -10,62 +11,64 @@ const HomeMainbar = () => {
   const user = 1;
   const navigate = useNavigate();
 
-    
-  var questionsList = [{
-    _id: 1,
-    upVotes:3,
-    downVotes:2,
-    noOfAnswers:2,
-    questionTitle: "What is a function?" ,
-    questionBody: "It meant to be",
-    questionTags: ["java", "node js", "react js", "mongodb"],
-    userPosted:"mano",
-    userId : 1,
-    askedOn: "jan 1",
-    answer: [{
-      answerBody : "Answer",
-      userAnswered : "kumar",
-      answeredOn : "Jan 2",
-      userId : 2,
-    }]
-  },{
-    _id: 1,
-    upVotes:3,
-    downVotes:2,
-    noOfAnswers:2,
-    noOfAnswers: 2,
-    questionTitle: "What is a function?" ,
-    questionBody: "It meant to be",
-    questionTags: ["java", "node js", "react js", "mongodb"],
-    userPosted:"mano",
-    userId : 2,
-    askedOn: "jan 1",
-    answer: [{
-      answerBody : "Answer",
-      userAnswered : "kumar",
-      answeredOn : "Jan 2",
-      userId : 2,
-    }]
-  },{ 
-    _id: 1,
-    upVotes:3,
-    downVotes:2,
-    noOfAnswers:2,
-    noOfAnswers: 0,
-    questionTitle: "What is a function?" ,
-    questionBody: "It meant to be",
-    questionTags: ["java", "node js", "react js", "mongodb"],
-    userPosted:"mano",
-    userId : 3,
+  const questionsList = useSelector(state => state.questionsReducer)
+  
+  
+  // var questionsList = [{
+  //   _id: 1,
+  //   upVotes:3,
+  //   downVotes:2,
+  //   noOfAnswers:2,
+  //   questionTitle: "What is a function?" ,
+  //   questionBody: "It meant to be",
+  //   questionTags: ["java", "node js", "react js", "mongodb"],
+  //   userPosted:"mano",
+  //   userId : 1,
+  //   askedOn: "jan 1",
+  //   answer: [{
+  //     answerBody : "Answer",
+  //     userAnswered : "kumar",
+  //     answeredOn : "Jan 2",
+  //     userId : 2,
+  //   }]
+  // },{
+  //   _id: 1,
+  //   upVotes:3,
+  //   downVotes:2,
+  //   noOfAnswers:2,
+  //   noOfAnswers: 2,
+  //   questionTitle: "What is a function?" ,
+  //   questionBody: "It meant to be",
+  //   questionTags: ["java", "node js", "react js", "mongodb"],
+  //   userPosted:"mano",
+  //   userId : 2,
+  //   askedOn: "jan 1",
+  //   answer: [{
+  //     answerBody : "Answer",
+  //     userAnswered : "kumar",
+  //     answeredOn : "Jan 2",
+  //     userId : 2,
+  //   }]
+  // },{ 
+  //   _id: 1,
+  //   upVotes:3,
+  //   downVotes:2,
+  //   noOfAnswers:2,
+  //   noOfAnswers: 0,
+  //   questionTitle: "What is a function?" ,
+  //   questionBody: "It meant to be",
+  //   questionTags: ["java", "node js", "react js", "mongodb"],
+  //   userPosted:"mano",
+  //   userId : 3,
 
-    askedOn: "jan 1",
-    answer: [{
-      answerBody : "Answer",
-      userAnswered : "kumar",
-      answeredOn : "Jan 2",
-      userId : 1, 
-    }]
-  }]
+  //   askedOn: "jan 1",
+  //   answer: [{
+  //     answerBody : "Answer",
+  //     userAnswered : "kumar",
+  //     answeredOn : "Jan 2",
+  //     userId : 1, 
+  //   }]
+  // }]
 
   
   // function redirect () {
@@ -91,13 +94,13 @@ const HomeMainbar = () => {
         </div>
         <div > 
           {
-            questionsList === null ? 
+            questionsList.data === null ? 
             <h1> Loading .... </h1> : 
             <>
-                <p> { questionsList.length } questions </p>
-                <p>{ questionsList.questionTitle }</p>
+                <p> { questionsList.data.length } questions </p>
+                <p>{ questionsList.data.questionTitle }</p>
                     {
-                     <QuestionsList questionList = {questionsList} />
+                     <QuestionsList questionList = {questionsList.data} />
                     }
                 {/* <p> Hello Motto </p> */}
             </>
