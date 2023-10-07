@@ -18,5 +18,5 @@ const QuestionSchema = mongoose.Schema({
     }]
 
 })
-            // Named this model as Questions 
+            // Named this model as Question 
 export default mongoose.model("Question",QuestionSchema)
