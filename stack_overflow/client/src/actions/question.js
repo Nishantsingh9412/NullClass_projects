@@ -33,5 +33,15 @@ export const postAnswer = (answerData) => async (dispatch) => {
   }
 }
 
+    // async (dispatch) this is the syntax for redux thunk 
+export const deleteQuestion = (id,navigate) => async(dispatch) => {
+    try {
+      const {data} = api.deleteQuestion(id);
+      dispatch(fetchAllQuestions());
+      navigate('/');
+    } catch (error) {
+      console.log(error);
+    }
+}
 
 export default askQuestion
