@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { useParams, Link, useNavigate, useLocation } from 'react-router-dom';
 import moment from 'moment';
 import copy from 'copy-to-clipboard';
+import { useDispatch, useSelector } from 'react-redux';
 
 import upvote from '../../assets/sort-up.svg';
 import downvote from '../../assets/sort-down.svg';
 import './Questions.css';
 import Avatar from '../../components/Avatar/Avatar';
 import DisplayAnswer from './DisplayAnswer';
-import { useDispatch, useSelector } from 'react-redux';
 import { deleteQuestion, postAnswer } from '../../actions/question';
 
 
@@ -91,7 +91,7 @@ const QuestionsDetails = () => {
                 alert('Enter an answer before Submitting ')
             } else {
                 dispatch(postAnswer({ id, noOfAnswers: answerLength + 1, answerBody: Answer, userAnswered: User.result.name, userId: User.result._id }))
-            }
+            } 
         }
     }
 

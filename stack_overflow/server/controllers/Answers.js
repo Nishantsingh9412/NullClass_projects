@@ -33,7 +33,7 @@ export const postAnswer = async (req, res) => {
   };
 
 export const deleteAnswer = async (req,res) => {
-    const  {id : _id} = req.params;
+    const  {id : _id} = req.params;         // renaming id to _id  and  req.params typically contains route parameters extracted from the URL
     const {answerId , noOfAnswers} = req.body; 
 
       // Checking for question 
@@ -51,7 +51,7 @@ export const deleteAnswer = async (req,res) => {
 
     try {
         await Questions.updateOne(
-          {id} , 
+          {_id} , 
           // Pulls Element from an array that's Id is matched 
           {$pull : {'answer' : {_id : answerId}}}
         )
@@ -59,5 +59,5 @@ export const deleteAnswer = async (req,res) => {
     } catch (error) {
         res.status(405).json(error);
     }
-
+    
   }
