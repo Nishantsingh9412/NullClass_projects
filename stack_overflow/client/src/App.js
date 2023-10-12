@@ -9,7 +9,7 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchAllQuestions());
+    dispatch(fetchAllQuestions());  
   },[])
 
   return (
