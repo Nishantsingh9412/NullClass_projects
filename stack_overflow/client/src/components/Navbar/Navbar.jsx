@@ -1,10 +1,13 @@
 import React, { useEffect } from 'react'
-import {Link} from 'react-router-dom';
+import {Link, Navigate, useNavigate} from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import Avatar from '../../components/Avatar/Avatar'  
-// import Button from '../../components/Button/Button'  
-import {BsSearch} from 'react-icons/bs'
+// import Button from '../../components/Button/Button'
 import './Navbar.css'
+
+
+import {BsSearch} from 'react-icons/bs'
+import decode from 'jwt-decode'  
 import { useDispatch, useSelector } from 'react-redux';
 import {setCurrentUser} from '../../actions/currentUser';
 
@@ -13,10 +16,29 @@ const Navbar = () => {
     const dispatch = useDispatch();
     var User = useSelector((state) => (state.currentUserReducer));      // Selects profile data from Store 
 
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        dispatch({type : 'LOGOUT'});
+        navigate('/');
+        dispatch(setCurrentUser(null))
+    }
+    
     // Just Creates a side Effect 
     useEffect(() => {
+
+        const token = User?.token
+        if(token) {
+            const decodedToken = decode(token);
+            // Here 1000 means 1 hour 
+            if(decodedToken.exp * 1000 < new Date().getTime()){
+                handleLogout();
+            }
+        }
+
         dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))))
     },[dispatch]);
+
     
   return (
     // <div >
@@ -39,7 +61,7 @@ const Navbar = () => {
                     <Link to='/Auth' className='nav-item nav-links'> Log in  </Link> : 
                     <>
                          <Avatar backgroundColor={'#009dff'} px={'10px'} py={'14px'} borderRadius={'50%'} color={'white'}> <Link to='/User' style={{color:"white",textDecoration:"none"}}> {User.result.name.charAt(0).toUpperCase()} </Link> </Avatar> 
-                        <button className='nav-item nav-links' > Log Out  </button>
+                        <button className='nav-item nav-links' onClick={handleLogout}  > Log Out  </button>
                     </>
                 }
 
