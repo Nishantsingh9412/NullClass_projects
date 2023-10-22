@@ -1,5 +1,6 @@
-import Questions from "../models/Questions.js";
 import mongoose, { mongo }  from "mongoose";
+
+import Questions from "../models/Questions.js";
 
 export const AskQuestion = async (req,res) => {
     const postQuestionData = req.body;
