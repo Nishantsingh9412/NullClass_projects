@@ -78,7 +78,7 @@ const QuestionsDetails = () => {
     const dispatch = useDispatch();
     const User = useSelector((state) => (state.currentUserReducer))
     const location = useLocation();
-    const url = 'http://localhost:3000';
+    const url = 'https://stackoverflow9412.onrender.com';
     console.log(location);                    // --> Object // pathname "/Questions/64edf7956827cd3333eea943"
 
     const handlePostAns = (e, answerLength) => {
