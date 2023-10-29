@@ -78,7 +78,7 @@ const QuestionsDetails = () => {
     const dispatch = useDispatch();
     const User = useSelector((state) => (state.currentUserReducer))
     const location = useLocation();
-    const url = 'https://stackoverflow9412.onrender.com';
+    const url = 'https://stackoverflow9412.netlify.app';
     console.log(location);                    // --> Object // pathname "/Questions/64edf7956827cd3333eea943"
 
     const handlePostAns = (e, answerLength) => {
