@@ -30,7 +30,7 @@ const UserProfile = () => {
             <div className="user-details-container">
               <div className="user-details">
                 <Avatar  backgroundColor="purple" color='white' fontSize='50px' px='30px' py='45px' >
-                        {currentProfile?.name?.charAt(0).toUpperCase()}
+                        {currentProfile?.name?.charAt(0)?.toUpperCase()}
                 </Avatar>
                     <div className="user-name">
                       <h1>{currentProfile?.name}</h1>
